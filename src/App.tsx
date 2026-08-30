@@ -8,6 +8,7 @@ import Portfolio from "./Components/Portfolio";
 import WhyChooseUs from "./Components/WhyChooseUs";
 import Contact from "./Components/Contact";
 import Machinery from "./Components/Machinery";
+import Clients from "./Components/Clients";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Portfolio />
       <Contact />
       <Machinery />
+      <Clients />
     </>
   );
 }

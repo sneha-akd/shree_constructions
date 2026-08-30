@@ -1,3 +1,4 @@
+import { check_svg } from "./About";
 
 function WhyChooseUs() {
   return (
@@ -16,83 +17,79 @@ function WhyChooseUs() {
           <span className="orange-text">Trust Shree Construction</span>
         </h1>
 
-        <p
-          style={{
-            fontSize: "19px",
-            color: "rgb(129, 129, 226)",
-          }}
-        >
+        <p>
           We combine modern engineering technology, uncompromised material
           standards, and transparent craftsmanship.
         </p>
 
         {/* 8 Boxes */}
         <div className="choose-us-grid">
-          <div className="choose-box">
+          <div className="choose-box verified-footer-wrapper">
 
             <h2 >High Quality Materials</h2>
             <p>Only grade-A steel, UltraTech cement, certified bricks, and tested aggregates directly from authorized mills.</p>
-            <div className="verified-wrapper"><span className="verified-tick">✓</span>
+            <div className="verified-footer"><span className="verified-tick">{check_svg}</span>
               <span className="verified">VERIFIED STANDARD</span></div>
 
           </div>
 
-          <div className="choose-box">
+          <div className="choose-box verified-footer-wrapper">
 
             <h2>Experience</h2>
             <p>Led by veteran civil engineers and foremen with 26+ years of collective regional expertise across Pan India.</p>
-            <div className="verified-wrapper"><span className="verified-tick">✓</span>
+            <div className="verified-footer"><span className="verified-tick">{check_svg}</span>
               <span className="verified">VERIFIED STANDARD</span></div>
           </div>
 
-          <div className="choose-box">
+          <div className="choose-box verified-footer-wrapper">
 
             <h2 >Transparent Pricing</h2>
             <p>Itemized material quotes and strict fixed-budget contracts with zero hidden charges or unexpected escalations.</p>
-            <div className="verified-wrapper"><span className="verified-tick">✓</span>
+            <div className="verified-footer"><span className="verified-tick">{check_svg}</span>
               <span className="verified">VERIFIED STANDARD</span></div>
           </div>
 
-          <div className="choose-box">
+          <div className="choose-box verified-footer-wrapper">
 
             <h2 >Timely Project Completion</h2>
             <p>Structured milestone schedules backed by strict project management guarantees to deliver your keys on time.</p>
-            <div className="verified-wrapper"><span className="verified-tick">✓</span>
+            <div className="verified-footer"><span className="verified-tick">{check_svg}</span>
               <span className="verified">VERIFIED STANDARD</span></div>
           </div>
 
-          <div className="choose-box">
+          <div className="choose-box verified-footer-wrapper">
 
             <h2 >Modern Engineering Techniques</h2>
             <p>Advanced structural modeling, PEB industrial framing, and laser-guided leveling equipment.</p>
-            <div className="verified-wrapper"><span className="verified-tick">✓</span>
+            <div className="verified-footer"><span className="verified-tick">{check_svg}</span>
               <span className="verified">VERIFIED STANDARD</span></div>
           </div>
 
-          <div className="choose-box">
+          <div className="choose-box verified-footer-wrapper">
 
             <h2 >Customer Satisfaction</h2>
             <p>100% commitment to your vision, regular site progress reports, and dedicated support throughout.</p>
-            <div className="verified-wrapper"><span className="verified-tick">✓</span>
+            <div className="verified-footer"><span className="verified-tick">{check_svg}</span>
               <span className="verified">VERIFIED STANDARD</span></div>
           </div>
 
-          <div className="choose-box">
+          <div className="choose-box verified-footer-wrapper">
 
             <h2 >Safety Standards</h2>
             <p>Zero-compromise site safety standards, worker protection gear, compliance, and structural integrity.</p>
-            <div className="verified-wrapper"><span className="verified-tick">✓</span>
+            <div className="verified-footer"><span className="verified-tick">{check_svg}</span>
               <span className="verified">VERIFIED STANDARD</span></div>
           </div>
 
-          <div className="choose-box">
+          <div className="choose-box verified-footer-wrapper">
 
             <h2 >Multi-Sector Expertise</h2>
             <p>Proven capability across residential villas, commercial complexes, PEB warehouses, and heavy roads.</p>
-            <div className="verified-wrapper"><span className="verified-tick">✓</span>
+            <div className="verified-footer"><span className="verified-tick">{check_svg}</span>
               <span className="verified">VERIFIED STANDARD</span></div>
           </div>
         </div>
+
         <div className="commitment-journey">
 
           {/* LEFT BOX - OUR COMMITMENT */}

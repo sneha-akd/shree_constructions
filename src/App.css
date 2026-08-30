@@ -8,6 +8,14 @@ html {
   scroll-behavior: smooth;
 }
 
+p {
+  line-height: 1.4;
+}
+
+svg {
+  display: block;
+}
+
 #home.hero {
   position: relative;
   display: flex;
@@ -31,11 +39,14 @@ html {
   --blue: rgb(129, 129, 226);
 
   /* foreground */
+  --primary-light: #ffd47f;
   --primary: #ffaa00;
   /* --primary-accent: #c87e05; */
   --primary-accent: #f36c00;
-  --secondary: #0f99d0;
-  --secondary-accent: #072765;
+  --secondary-light: #7faaff; /* 7faaff 9fd6ec */
+  --secondary: #0055ff;
+  --secondary-accent: #003399;
+  /* #01307b  #072765 #012a72 #074c68 #003399 */
 
   /* text */
   --neutral: #666666;
@@ -313,7 +324,7 @@ nav a:hover::after {
 section {
   min-height: 100vh;
 
-  padding: 100px 8%;
+  padding: 10px 8% 100px;
 
   display: flex;
   flex-direction: column;
@@ -332,8 +343,8 @@ section h1 {
   /* color: #ffffff; */
 }
 
-section p {
-  color: rgb(129, 129, 226);
+section > p {
+  color: var(--secondary-accent);
   font-size: 18px;
   line-height: 1.7;
   margin-bottom: 30px;
@@ -425,8 +436,10 @@ section p {
 #about,
 #services,
 #portfolio,
+#processes,
 #why-choose-us,
 #machinery,
+#clients,
 #contact {
   background: transparent;
   min-height: 100vh;
@@ -556,9 +569,6 @@ form button:hover {
     font-size: 14px;
   }
 
-  section {
-    padding: 80px 20px;
-  }
 
   section h1 {
     font-size: 35px;
@@ -591,13 +601,6 @@ form button:hover {
 
 #about h1 {
   margin: 0;
-}
-
-.orange-text {
-  color: #f67402;
-}
-#about {
-  padding: 50px;
 }
 
 /* About section */
@@ -638,6 +641,9 @@ form button:hover {
   color: #000;
 }
 
+.info-content hr {
+  margin: 1em;
+}
 /* 4 boxes inside info-card */
 .small-boxes {
   display: grid;
@@ -647,7 +653,8 @@ form button:hover {
 }
 
 .small-box {
-  background: #f5f7fa;
+  /* background: #f5f7fa; */
+  background: var(--bgcolor-muted);
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -679,12 +686,16 @@ form button:hover {
   width: 80%;
   box-sizing: border-box;
   padding: 20px;
-  border-left: 4px solid #f97316;
+  border-left: 4px solid var(--primary-accent);
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   
 }
 
+.flex {
+  display: flex;
+  flex-direction: ltr;
+}
 
 .extra-box h3 {
   margin: 0 0 5px;
@@ -693,6 +704,18 @@ form button:hover {
 .extra-box p {
   margin: 0;
   color: #666;
+}
+
+.extra-box .svg {
+  background-color: var(--primary-light);
+  padding: 1em;
+  height: fit-content;
+  margin-right: 1em;
+  border-radius: 1em;
+}
+
+.extra-box .svg svg {
+  stroke: var(--secondary-accent);
 }
 
 /* Responsive */
@@ -755,12 +778,27 @@ form button:hover {
   padding: 0.3em 0;
 }
 
+.core-value-box:hover {
+  transform: translateY(-8px);
+  border: 1px  solid var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
 .core-value-icon {
   background-color: var(--bgcolor-muted);
   width: fit-content;
   margin: auto;
   padding: 0.8em;
   border-radius: 1em;
+}
+
+.core-value-icon svg {
+  stroke: var(--secondary-accent);
+}
+
+.core-value-box:hover .core-value-icon {
+  background-color: var(--primary-light);
 }
 
 .values-wrapper {
@@ -770,7 +808,7 @@ form button:hover {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 15px;
-  background: #f5f5f5;
+  background: var(--bgcolor-muted);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -809,14 +847,14 @@ form button:hover {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #e15c14;
-  font-size: 14px;
-  font-weight: bold;
+  color: var(--primary-accent);
 }
+
 .info-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px 30px;
+  margin-top: 1em;
 }
 
 .info-item {
@@ -837,7 +875,7 @@ form button:hover {
 /* services */
 .choose-us-grid {
   width: 100%;
-  margin: 50px auto 0;
+  margin: 20px auto 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -845,17 +883,20 @@ form button:hover {
 
 .choose-box {
   min-height: 220px;
-  padding: 30px;
+  /* padding: 30px; */
+  padding: 2em;
   background: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s ease;
+
+  position: relative;
 }
 
 .choose-box:hover {
   transform: translateY(-8px);
-  border-color: #f58220;
+  border-color: var(--primary);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -882,27 +923,50 @@ form button:hover {
   line-height: 1.6;
   margin: 0;
 }
+
 .verified-tick {
-  width: 15px;
-  height: 15px;
-  background: #f58220;
+  padding: 0.1em;
+  background: var(--primary);
   border-radius: 50%;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 11px;
+  font-size: 0.8em;
 }
+
+.verified-tick svg {
+  width: 1em;
+  height: 1em;
+  stroke: white;
+  stroke-width: 4px;
+}
+
 .verified{
-  color:#f58220 ;
+  color: var(--primary-accent) ;
   font-size: 12px;
 }
-.verified-wrapper {
+.verified-footer {
   
   display: flex;
   align-items: center;
   gap: 8px;
   margin-top: 25px;
+
+  position: absolute;
+  padding-bottom: 1.5em;
+  bottom: 0;
+}
+
+.verified-footer-wrapper {
+  padding-bottom: 4em;
+}
+
+.verified-check {
+  display: flex;
+  align-items: center;
+  gap:  0.5em;
 }
 /* =========================================
    COMMITMENT & JOURNEY
@@ -912,7 +976,7 @@ form button:hover {
 .process-grid {
 
   width: 100%;
-  margin: 70px auto;
+  margin: 70px auto 0px;
 
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -935,6 +999,8 @@ form button:hover {
   padding: 32px 35px;
 
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
+
+  position: relative;
 }
 
 .process-box-0 {
@@ -1222,13 +1288,16 @@ form button:hover {
 
 .portfolio-section {
   width: 100%;
-  padding: 80px 0;
+  padding: 0 0;
 
   background: #f4f1eb;
 
   overflow: hidden;
 }
 
+.process-list {
+  line-height: 1.5;
+}
 
 /* =========================================
    HEADER
@@ -1264,7 +1333,7 @@ form button:hover {
 }
 
 .orange-text {
-  color: #f36c21;
+  color: var(--primary-accent);
 }
 
 .portfolio-description {
@@ -1289,7 +1358,7 @@ form button:hover {
 
   overflow: hidden;
 
-  margin: 30px 0;
+  margin-top: 30px;
 
   padding: 12px 0;
 }
@@ -1351,7 +1420,7 @@ form button:hover {
 .marquee-item:hover {
   transform: translateY(-6px);
 
-  border-color: #ff6b00;
+  border-color: var(--primary);
 
   box-shadow:
     0 15px 35px rgba(243, 108, 33, 0.18);
@@ -1539,10 +1608,6 @@ form button:hover {
 /* =========================================
    SECOND MARQUEE
 ========================================= */
-
-.bottom-marquee {
-  margin-top: 10px;
-}
 
 .marquee-track.reverse {
   animation: marqueeRight 70s linear infinite;
@@ -1742,8 +1807,13 @@ form button:hover {
   width: max-content;
   padding: 10px;
   border-radius: 1rem;
-  background-color: var(--icon-bg);
-  color: var(--orange);
+  background-color: var(--bgcolor-muted);
+  color: var(--secondary-accent);
+  line-height: 0%;
+}
+
+.choose-box:hover .process-item-icon {
+  background-color: var(--primary-light);
 }
 
 .process-item-content {
@@ -1819,7 +1889,7 @@ form button:hover {
 }
 
 .machinery-item h3 {
-  background-color: var(--secondary);
+  background-color: var(--secondary-light);
   height: 3em;
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
@@ -1834,4 +1904,190 @@ form button:hover {
 
 .machinery-item p {
   color: var(--secondary);
+}
+
+/* ==================================
+== CLIENTS
+================================== */
+
+.logo-showcase {
+  min-width: 600px;
+  height: auto;
+
+  display: flex;
+  overflow: hidden;
+
+  background: #fff;
+}
+
+
+/* --------------------------------
+   LEFT PANEL
+-------------------------------- */
+
+.logo-marquee {
+  width: 30%;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+
+/*
+ * The three logos are 60px high.
+ *
+ * 60 × 3 = 180px
+ *
+ * Therefore the viewport is exactly
+ * three logos high.
+ */
+
+.logo-marquee-track {
+  width: 100%;
+  height: 30em;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  /* animation: marqueeMove 2.5s ease-in-out infinite; */
+  transition: transform 600ms ease-in-out;
+
+  will-change: transform;
+}
+
+
+/* --------------------------------
+   LOGO ITEM
+-------------------------------- */
+
+.logo-item {
+  min-width: 12em;
+  height: 10em;
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* transition:
+    transform 0.4s ease,
+    opacity 0.4s ease; */
+}
+
+.logo-item img {
+  width: 10em;
+  height: 10em;
+
+  object-fit: contain;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  transform: scale(0.8);
+}
+
+
+/*
+ * Center / active logo
+ */
+
+.logo-item.active img {
+  transform: scale(1.05);
+}
+
+
+/* --------------------------------
+   RIGHT PANEL
+-------------------------------- */
+
+.logo-details {
+  width: 30rem;
+  height: 30em;
+
+  padding: 25px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  background: white;
+}
+
+
+/* Large logo */
+
+.detail-logo {
+  width: 15em;
+  height: 15em;
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-logo img {
+  width: 15em;
+  height: 15em;
+
+  object-fit: contain;
+}
+
+
+/* Text */
+
+.detail-content {
+  min-width: 0;
+}
+
+.detail-content h2 {
+  margin: 0 0 8px;
+
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.detail-content p {
+  margin: 0 0 12px;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  color: #666;
+}
+
+.detail-content a {
+  font-size: 12px;
+
+  color: #111;
+
+  text-decoration: underline;
+}
+
+
+/* --------------------------------
+   MARQUEE ANIMATION
+-------------------------------- */
+
+@keyframes marqueeMove {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  80% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10em);
+  }
+
 }

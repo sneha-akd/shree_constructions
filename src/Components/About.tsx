@@ -44,7 +44,10 @@ const expertises = [
   "RCC Structures & Repairs", "All Types of Civil Construction Works",
 ]
 
-const check_svg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>;
+export const check_svg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>;
+const eye_svg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
+const focus_svg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-focus-icon lucide-focus"><circle cx="12" cy="12" r="3" /><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /></svg>
+const location_svg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-fixed-icon lucide-locate-fixed"><line x1="2" x2="5" y1="12" y2="12" /><line x1="19" x2="22" y1="12" y2="12" /><line x1="12" x2="12" y1="2" y2="5" /><line x1="12" x2="12" y1="19" y2="22" /><circle cx="12" cy="12" r="7" /><circle cx="12" cy="12" r="3" /></svg>
 
 function About() {
   return (
@@ -100,22 +103,37 @@ function About() {
 
         <div className="extra-boxes">
 
-          <div className="extra-box">
-            <h3>OUR MISSION</h3>
-            <p>To continuously construct,grow and deliver quality</p>
-            <p>while moving forward with honesty and excellence.</p>
+          <div className="extra-box flex">
+            <div className="svg">
+              {focus_svg}
+            </div>
+            <div>
+              <h3>OUR MISSION</h3>
+              <p>To continuously construct, grow and deliver quality</p>
+              <p>while moving forward with honesty and excellence.</p>
+            </div>
 
           </div>
 
-          <div className="extra-box">
-            <h3>OUR VISION</h3>
-            <p>To handle bigger projects with excellence and become </p>
-            <p>a trusted name in the construction industry.</p>
+          <div className="extra-box flex">
+            <div className="svg">
+              {eye_svg}
+            </div>
+            <div>
+              <h3>OUR VISION</h3>
+              <p>To handle bigger projects with excellence and become </p>
+              <p>a trusted name in the construction industry.</p>
+            </div>
           </div>
 
-          <div className="extra-box">
-            <p>OUR COVERAGE</p>
-            <h3>Based in Nagpur, Serving Across India (Pan India)</h3>
+          <div className="extra-box flex">
+            <div className="svg">
+              {location_svg}
+            </div>
+            <div>
+              <p>OUR COVERAGE</p>
+              <h3>Based in Nagpur, Serving Across India (Pan India)</h3>
+            </div>
           </div>
 
         </div>

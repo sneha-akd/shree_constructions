@@ -88,7 +88,7 @@ function Machinery() {
       <div className="overline">
         <div className="overline-box">
           <span className="overline-star">★</span>
-          <p>tools we use</p>
+          <p>TOOLS WE USE</p>
         </div>
       </div>
 

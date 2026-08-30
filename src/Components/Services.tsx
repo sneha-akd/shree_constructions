@@ -1,3 +1,5 @@
+import { check_svg } from "./About";
+
 function Services() {
 
   const cards = [
@@ -85,13 +87,13 @@ function Services() {
         <span className="orange-text">Construction Services</span>
       </h1>
 
-      <p style={{ fontSize: "14px", color: "rgb(129, 129, 226)" }}>COMPLETE CONSTRUCTION SOLUTIONS UNDER ONE ROOF </p>
+      <p>COMPLETE CONSTRUCTION SOLUTIONS UNDER ONE ROOF </p>
 
 
       <div className="construction-description">
         <p>
           “From Residential Homes to Large-Scale Infrastructure Projects,
-          <b>Shree Construction Engineers & Contractor</b> delivers reliable,<br />
+          <b>{" "}Shree Construction Engineers & Contractor</b> delivers reliable,<br />
           high-quality, and cost-effective construction solutions with a
           commitment to excellence.”
         </p>
@@ -122,7 +124,7 @@ function Services() {
 
                 {card.scope.map((item, itemIndex) => (
                   <div className="info-item" key={itemIndex}>
-                    <span>✓</span>
+                    <span className="check-icon">{check_svg}</span>
                     <p>{item}</p>
                   </div>
                 ))}

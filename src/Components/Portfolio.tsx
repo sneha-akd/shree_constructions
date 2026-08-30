@@ -303,89 +303,68 @@ function MarqueeBox({
 
 function Portfolio() {
   return (
-    <section
-      id="portfolio"
-      className="portfolio-section"
-    >
-      <div className="overline">
-        <div className="overline-box">
-          <span className="overline-star">★</span>
-          <p>PROVEN TRACK RECORD</p>
+    <>
+      <section
+        id="portfolio"
+        className="portfolio-section"
+      >
+        <div className="overline">
+          <div className="overline-box">
+            <span className="overline-star">★</span>
+            <p>PROVEN TRACK RECORD</p>
+          </div>
         </div>
-      </div>
-      {/* HEADER */}
-      <h1>
-        Featured{" "}
-        <span className="orange-text">
-          Construction Projects
-        </span>
+        {/* HEADER */}
+        <h1>
+          Featured{" "}
+          <span className="orange-text">
+            Construction Projects
+          </span>
 
-      </h1>
+        </h1>
 
-      <p className="portfolio-description">
-        A glimpse of our successfully completed
-        and ongoing projects across various sectors
-        across Maharashtra and India.
-      </p>
-
+        <p >
+          A glimpse of our successfully completed
+          and ongoing projects across various sectors
+          across Maharashtra and India.
+        </p>
 
 
-      {/* =========================================
+
+        {/* =========================================
           FIRST MARQUEE
       ========================================= */}
 
-      <div className="portfolio-marquee">
+        <div className="portfolio-marquee">
 
-        <div className="marquee-track">
+          <div className="marquee-track">
 
-          {[...projects, ...projects].map(
-            (project, index) => (
-              <MarqueeBox
-                project={project}
-                key={`top-${index}`}
-              />
-            )
-          )}
+            {[...projects, ...projects].map(
+              (project, index) => (
+                <MarqueeBox
+                  project={project}
+                  key={`top-${index}`}
+                />
+              )
+            )}
+
+          </div>
 
         </div>
 
-      </div>
 
-
-      {/* =========================================
+        {/* =========================================
           HIDDEN LARGE PROJECT GRID
       ========================================= */}
 
-      <div className="projects-grid">
+        <div className="projects-grid">
 
-        {projects.map(
-          (project, index) => (
-
-            <ProjectCard
-              key={index}
-              project={project}
-            />
-
-          )
-        )}
-
-      </div>
-
-
-      {/* =========================================
-          SECOND MARQUEE
-      ========================================= */}
-
-      <div className="portfolio-marquee bottom-marquee">
-
-        <div className="marquee-track reverse">
-
-          {[...projects, ...projects].map(
+          {projects.map(
             (project, index) => (
 
-              <MarqueeBox
+              <ProjectCard
+                key={index}
                 project={project}
-                key={`bottom-${index}`}
               />
 
             )
@@ -393,60 +372,83 @@ function Portfolio() {
 
         </div>
 
-      </div>
 
+        {/* =========================================
+          SECOND MARQUEE
+      ========================================= */}
 
-      <div className="overline">
-        <div className="overline-box">
-          <span className="overline-star">★</span>
-          <p>SYSTEMATIC EXECUTION</p>
+        <div className="portfolio-marquee bottom-marquee">
+
+          <div className="marquee-track reverse">
+
+            {[...projects, ...projects].map(
+              (project, index) => (
+
+                <MarqueeBox
+                  project={project}
+                  key={`bottom-${index}`}
+                />
+
+              )
+            )}
+
+          </div>
+
         </div>
-      </div>
-      <h1>
-        Our Work{" "}
-        <span className="orange-text">Process</span>
-      </h1>
+      </section>
 
-      <p> A Systematic Approach. Quality Results.</p>
-
-      <div className="choose-process-grid">
-        {processes.map((proc, index) => {
-          return <div className="choose-box">
-            <div className="process-item-wrapper">
-              {/* <span className="process-item-index">0{index}</span> */}
-              <div className="process-item-icon">
-                {proc.icon}
-              </div>
-              <div className="process-item-content">
-                <span className="subtitle">STEP 0{index + 1}</span>
-                <h3 className="">{proc.title}</h3>
-
-                <p className="">{proc.description}</p>
-              </div>
-            </div>
-          </div>;
-        })}
-      </div>
-
-      <div className="process-grid">
-        <div className="process-box-0">
-          <p className="quote">
-            {/* <span className="quote">{quote_open}</span> */}
-            Every project follows a systematic approach to ensure quality, safety, transparency and on-time delivery
-          </p>
+      <section id="processes">
+        <div className="overline">
+          <div className="overline-box">
+            <span className="overline-star">★</span>
+            <p>SYSTEMATIC EXECUTION</p>
+          </div>
         </div>
-        <div className="process-box">
-          <p>All Projects are backed by authentic proofs and work orders</p>
-          <div className="verified-wrapper no-margin"><span className="verified-tick">✓</span>Work Orders & Contracts Available</div>
-          <div className="verified-wrapper no-margin"><span className="verified-tick">✓</span>Completion Certificates</div>
-          <div className="verified-wrapper no-margin"><span className="verified-tick">✓</span>Client References</div>
-          <div className="verified-wrapper no-margin"><span className="verified-tick">✓</span>Photos & Site Records</div>
+        <h1>
+          Our Work{" "}
+          <span className="orange-text">Process</span>
+        </h1>
+
+        <p> A Systematic Approach. Quality Results.</p>
+
+        <div className="choose-process-grid">
+          {processes.map((proc, index) => {
+            return <div className="choose-box">
+              <div className="process-item-wrapper">
+                {/* <span className="process-item-index">0{index}</span> */}
+                <div className="process-item-icon">
+                  {proc.icon}
+                </div>
+                <div className="process-item-content">
+                  <span className="subtitle">STEP 0{index + 1}</span>
+                  <h3 className="">{proc.title}</h3>
+
+                  <p className="">{proc.description}</p>
+                </div>
+              </div>
+            </div>;
+          })}
+        </div>
+
+        <div className="process-grid">
+          <div className="process-box-0">
+            <p className="quote">
+              {/* <span className="quote">{quote_open}</span> */}
+              Every project follows a systematic approach to ensure quality, safety, transparency and on-time delivery
+            </p>
+          </div>
+          <div className="process-box process-list">
+            <p>All Projects are backed by authentic proofs and work orders</p>
+            <div className="verified-check no-margin"><span className="verified-tick">{check_svg}</span>Work Orders & Contracts Available</div>
+            <div className="verified-check no-margin"><span className="verified-tick">{check_svg}</span>Completion Certificates</div>
+            <div className="verified-check no-margin"><span className="verified-tick">{check_svg}</span>Client References</div>
+            <div className="verified-check no-margin"><span className="verified-tick">{check_svg}</span>Photos & Site Records</div>
+          </div >
         </div >
-      </div >
 
-    </section >
+      </section >
 
-
+    </>
 
   );
 }

@@ -1,6 +1,5 @@
 
 
-
 import logo_main from "../assets/logo_main.png";
 
 function Home() {

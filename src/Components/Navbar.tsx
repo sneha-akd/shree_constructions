@@ -69,6 +69,13 @@ function Navbar() {
           Tools
         </a>
         <a
+          href="#clients"
+          className={active === "clients" ? "active" : ""}
+          onClick={() => handleClick("clients")}
+        >
+          Clients
+        </a>
+        <a
           href="#contact"
           className={active === "contact" ? "active" : ""}
           onClick={() => handleClick("contact")}

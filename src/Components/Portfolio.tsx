@@ -405,8 +405,8 @@ function Portfolio() {
           </div>
         </div>
         <h1>
-          Our Work{" "}
-          <span className="orange-text">Process</span>
+          Our {" "}
+          <span className="orange-text">Work Process</span>
         </h1>
 
         <p> A Systematic Approach. Quality Results.</p>

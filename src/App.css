@@ -57,6 +57,8 @@ svg {
   --bgaccent: #e3e3e3;
   --bgcolor-muted: #f0f0f0;
   --icon-bg: #ffeaac;
+
+  --vert_marquee_icon_size: 10em;
 }
 
 /* Background image ONLY */
@@ -382,11 +384,12 @@ section > p {
 
 .overline-box p {
   /* color: #f67402; */
-  color: var(--primary-accent);
-  font-size: 14px;
-  font-weight: 200;
+  color: var(--neutral-accent);
+  font-size: 0.6em;
+  font-weight: 700;
   margin: 0;
   text-align: center;
+  letter-spacing: 3px;
 }
 
 .generic-grid {
@@ -621,7 +624,16 @@ form button:hover {
   background: white;
   padding: 24px;
   border-radius: 16px;
+  border: 1px solid transparent; /* keeps size from jumping */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+
+
+.info-card:hover {
+  border-color: orange;
+  
 }
 
 .info-content {
@@ -1003,6 +1015,35 @@ form button:hover {
   position: relative;
 }
 
+.commitment-journey,
+.process-grid {
+  width: 100%;
+  margin: 70px auto 0px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+
+  align-items: stretch;
+}
+
+/* Boxes inside both grids */
+.commitment-journey > *,
+.process-grid > * {
+  border: 1px solid transparent;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Orange border on hover */
+.commitment-journey > *:hover,
+.process-grid > *:hover {
+  border-color: #f97316;
+  
+  transform: translateY(-5px);
+}
+
+
 .process-box-0 {
   width: 100%;
   height: 100%;
@@ -1330,6 +1371,21 @@ form button:hover {
 
 .about-star {
   color: #ff6b00;
+}
+
+.orange-text-gradient {
+  /* 1. Define the gradient background */
+  background-image: linear-gradient(90deg, var(--primary), var(--primary-accent));
+  
+  /* 2. Clip the background to the text characters */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. Hide the text fill color to let the background show through */
+  color: transparent;
+  
+  /* Optional: Ensures the gradient spans across inline headers correctly */
+  display: inline-block; 
 }
 
 .orange-text {
@@ -1827,6 +1883,7 @@ form button:hover {
   border-radius: 1rem;
 
   font-size: 1.3rem;
+  margin-bottom: 40px;
 }
 
 .quote::before {
@@ -1906,188 +1963,2018 @@ form button:hover {
   color: var(--secondary);
 }
 
-/* ==================================
-== CLIENTS
-================================== */
+/* ==========================================
+   CLIENTS SECTION
+========================================== */
 
-.logo-showcase {
-  min-width: 600px;
-  height: auto;
-
-  display: flex;
-  overflow: hidden;
-
-  background: #fff;
-}
-
-
-/* --------------------------------
-   LEFT PANEL
--------------------------------- */
-
-.logo-marquee {
-  width: 30%;
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
-}
-
-
-/*
- * The three logos are 60px high.
- *
- * 60 × 3 = 180px
- *
- * Therefore the viewport is exactly
- * three logos high.
- */
-
-.logo-marquee-track {
+#clients {
   width: 100%;
-  height: 30em;
+  padding: 100px 5%;
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+
+
+
+#clients h1 {
+  margin: 0;
+
+  color: #111;
+
+  font-size: clamp(42px, 6vw, 76px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+}
+
+
+.orange-text {
+  color: #f97316;
+}
+
+
+
+
+#clients {
+  width: 100%;
+
+  padding: 100px 0;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+
+
+#clients h1 {
+  margin: 0;
+
+  color: #111;
+
+  font-size: clamp(42px, 6vw, 76px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+}
+
+
+
+.clients-subtitle {
+  margin: 22px 0 0;
+
+  color: var(--secondary-accent);
+
+  font-size: 18px;
+
+  line-height: 1.6;
+  margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+
+/* ==========================================
+   MARQUEE
+========================================== */
+
+.clients-marquee {
+  width: 100%;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 20px 0;
+}
+
+
+/* ==========================================
+   TRACK
+========================================== */
+
+.clients-marquee-track {
+  width: max-content;
 
   display: flex;
-  flex-direction: column;
 
-  align-items: center;
+  align-items: stretch;
 
-  /* animation: marqueeMove 2.5s ease-in-out infinite; */
-  transition: transform 600ms ease-in-out;
+  animation: clientsMarquee 38s linear infinite;
 
   will-change: transform;
 }
 
 
-/* --------------------------------
-   LOGO ITEM
--------------------------------- */
+.marquee-paused {
+  animation-play-state: paused;
+}
 
-.logo-item {
-  min-width: 12em;
-  height: 10em;
+
+/* ==========================================
+   GROUP
+========================================== */
+
+.clients-marquee-group {
+  display: flex;
+
+  align-items: stretch;
+
+  gap: 18px;
+
+  padding-right: 18px;
+
+  flex-shrink: 0;
+}
+
+
+/* ==========================================
+   CLIENT CARD
+========================================== */
+
+.client-card {
+  width: 230px;
+
+  min-height: 250px;
 
   flex-shrink: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* transition:
-    transform 0.4s ease,
-    opacity 0.4s ease; */
-}
-
-.logo-item img {
-  width: 10em;
-  height: 10em;
-
-  object-fit: contain;
-
-  transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
-
-  transform: scale(0.8);
-}
-
-
-/*
- * Center / active logo
- */
-
-.logo-item.active img {
-  transform: scale(1.05);
-}
-
-
-/* --------------------------------
-   RIGHT PANEL
--------------------------------- */
-
-.logo-details {
-  width: 30rem;
-  height: 30em;
-
-  padding: 25px;
+  padding: 21px;
 
   box-sizing: border-box;
 
   display: flex;
-  align-items: center;
-  gap: 20px;
 
-  background: white;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  border: 1px solid  #ebe9e9;
+
+  border-radius: 10px;
+ background-color: #ffffff;
+  position: relative;
+
+  /*
+   * NO HOVER EFFECT
+   */
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 
-/* Large logo */
+/* ==========================================
+   ACTIVE CARD
+========================================== */
 
-.detail-logo {
-  width: 15em;
-  height: 15em;
+.client-card.active-client {
+
+  background: #ffffff;
+
+  border-color: var(--primary-accent);
+
+  box-shadow:
+    0 15px 35px rgba(249, 115, 22, 0.12);
+}
+
+
+/* ==========================================
+   LOGO AREA
+========================================== */
+
+.client-card-logo {
+
+  width: 100%;
+
+  height: 105px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 15px;
+}
+
+
+.client-card-logo img {
+
+  width: 100%;
+
+  height: 90px;
+
+  object-fit: contain;
+
+  /*
+   * KEEP ORIGINAL LOGO COLORS
+   */
+
+  opacity: 1;
+
+  filter: none;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.client-card-content {
+
+  width: 100%;
+}
+
+
+.client-card-content h3 {
+
+  margin: 0 0 8px;
+
+  color: #111;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.2px;
+}
+
+
+.client-card-content p {
+
+  margin: 0 0 12px;
+
+  color: #777;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+/* ==========================================
+   WEBSITE LINK
+========================================== */
+
+.client-card-content a {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  color: #111;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+
+.client-card-content a span {
+
+  color: #f97316;
+
+  font-size: 13px;
+}
+
+
+/* ==========================================
+   MARQUEE ANIMATION
+========================================== */
+
+@keyframes clientsMarquee {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* ==========================================
+   FADE EDGES
+========================================== */
+
+.marquee-fade {
+
+  position: absolute;
+
+  top: 0;
+
+  width: 150px;
+
+  height: 100%;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+
+.marquee-fade-left {
+
+  left: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+}
+
+
+.marquee-fade-right {
+
+  right: 0;
+
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  #clients {
+    padding: 80px 0;
+  }
+
+
+  .clients-header {
+    width: 90%;
+
+    margin-bottom: 40px;
+  }
+
+
+  .client-card {
+
+    width: 225px;
+
+    min-height: 260px;
+
+    padding: 20px;
+  }
+
+
+  .client-card-logo {
+
+    height: 95px;
+  }
+
+
+  .client-card-logo img {
+
+    height: 78px;
+  }
+
+
+  .clients-marquee-group {
+    gap: 14px;
+    padding-right: 14px;
+  }
+
+}
+
+/* 1st, 3rd, 5th... */
+.client-card:nth-child(odd) {
+  border-left-color: #c2410c; /* dark orange */
+}
+
+/* 2nd, 4th, 6th... */
+.client-card:nth-child(even) {
+  border-left-color: #1d4ed8; /* dark blue */
+}
+
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .clients-marquee-track {
+
+    animation: none;
+  }
+
+}
+
+.trust-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5em;
+  padding: 5px 8%;
+  box-sizing: border-box;
+}
+
+.trust-card {
+  min-height: 90px;
+  background: #fff;
+  border: 1px solid #e3e9f1;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px rgba(30, 50, 80, 0.05);
+
+  transition: all 0.25s ease;
+}
+
+.trust-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(30, 50, 80, 0.1);
+  border-color:  #f58220;
+}
+
+.trust-card .icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ed7900;
+}
+
+.trust-card .icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.trust-card h3 {
+  margin: 0;
+  color: #172238;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.trust-card p {
+  margin: 8px 0 0;
+  color: #7084a3;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* contact page */
+/* ================================
+   CONTACT SECTION
+================================ */
+
+.contact-section {
+  width: 100%;
+
+  padding: 0 0 70px;
+  box-sizing: border-box;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 70px;
+
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   LEFT SIDE
+================================ */
+
+.contact-left {
+  
+  border-radius: 25px;
+
+  padding: 20px;
+
+  
+}
+
+.partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 45px;
+  padding: 0 22px;
+
+  border: 1.5px solid #f2b900;
+  border-radius: 25px;
+
+  background: #fff;
+
+  color: #a94e0c;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  box-sizing: border-box;
+}
+
+.partner-badge svg {
+  width: 22px;
+  height: 22px;
+
+  color: #b95b0a;
+}
+
+
+/* ================================
+   MAIN HEADING
+================================ */
+
+.contact-left h1 {
+  margin: 28px 0 20px;
+
+  color: #111a2f;
+  font-size: 50px;
+  line-height: 0.98;
+  font-weight: 100;
+  letter-spacing: -2.5px;
+}
+
+.contact-left h1 span {
+  display: block;
+  color: #d56b00;
+  margin-top: 5px;
+}
+
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.contact-description {
+  max-width: 690px;
+
+  margin: 0 0 45px;
+
+  color: #50617a;
+
+  
+  line-height: 1.85;
+ 
+}
+
+.contact-description span {
+  background: #f5a000;
+  color: white;
+
+  padding: 1px 4px;
+}
+
+
+/* =========================================
+   MAIN AREA
+========================================= */
+
+.contact-area {
+  width: 100%;
+  padding: 35px 20px;
+
+  box-sizing: border-box;
+}
+
+.contact-boxes {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   LEFT SMALL BOX
+========================================= */
+
+.contact-info-box {
+  width: 100%;
+
+  padding: 60px;
+
+  background: #fbf7f2;
+
+  border:  #e3e8ef;
+  border-radius: 20px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 4px 15px rgba(30, 50, 80, 0.05);
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.contact-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 13px;
+
+  border: 1px solid #f0b400;
+  border-radius: 20px;
+
+  color: #ad520d;
+
+  background: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   LEFT HEADING
+========================================= */
+
+.contact-info-box h1 {
+  margin: 17px 0 10px;
+
+  color: #121b30;
+
+  font-size: 32px;
+  line-height: 1.05;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.contact-info-box h1 span {
+  display: block;
+
+  color: #d66b00;
+
+  margin-top: 2px;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.contact-text {
+  margin: 0 0 20px;
+  color: #58677e;
+  line-height: 1.6;
+}
+
+.contact-text b {
+  padding: 1px 3px;
+
+  background: #f2a000;
+
+  color: #ffffff;
+
+  font-weight: 400;
+}
+
+
+/* =========================================
+   MINI CONTACT BOX
+========================================= */
+
+.mini-contact {
+  width: 100%;
+  min-height: 65px;
+
+  display: flex;
+  align-items: center;
+
+  margin-top: 10px;
+
+  padding: 10px 13px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4e9ef;
+
+  border-radius: 14px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   MINI ICON
+========================================= */
+
+.mini-icon {
+  width: 40px;
+  height: 40px;
 
   flex-shrink: 0;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  background: #fff4d0;
+
+  border-radius: 11px;
+
+  color: #c75c00;
 }
 
-.detail-logo img {
-  width: 15em;
-  height: 15em;
+.mini-icon svg {
+  width: 21px;
+  height: 21px;
 
-  object-fit: contain;
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
-/* Text */
+/* =========================================
+   MINI CONTACT TEXT
+========================================= */
 
-.detail-content {
+.mini-contact > div:last-child {
+  margin-left: 12px;
+
   min-width: 0;
 }
 
-.detail-content h2 {
-  margin: 0 0 8px;
+.mini-contact small {
+  display: block;
 
-  font-size: 16px;
+  margin-bottom: 2px;
+
+  color: #8da1bf;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+}
+
+.mini-contact strong {
+  display: block;
+
+  color: #121b30;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
   line-height: 1.2;
 }
 
-.detail-content p {
-  margin: 0 0 12px;
+.mini-contact .email-text {
+  font-size: 15px;
 
-  font-size: 13px;
-  line-height: 1.5;
-
-  color: #666;
+  word-break: break-word;
 }
 
-.detail-content a {
+
+/* =========================================
+   RIGHT CONSULTATION BOX
+========================================= */
+
+.consult-box {
+  width: 100%;
+
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #efd5c0;
+
+  border-radius: 20px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 4px 15px rgba(30, 50, 80, 0.05);
+}
+
+
+/* =========================================
+   RIGHT HEADING
+========================================= */
+
+.consult-box h2 {
+  margin: 0 0 5px;
+
+  color: #121b30;
+
+  font-size: 27px;
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+.consult-subtitle {
+  margin: 0 0 20px;
+
+  color: #8da1bf;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+}
+
+
+/* =========================================
+   FORM ROW
+========================================= */
+
+.small-form-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+
+  margin-bottom: 13px;
+}
+
+
+/* =========================================
+   FIELD
+========================================= */
+
+.small-field {
+  width: 100%;
+
+  margin-bottom: 13px;
+
+  box-sizing: border-box;
+}
+
+.small-form-row .small-field {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.small-field label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #34445c;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+}
+
+
+/* =========================================
+   INPUT + SELECT
+========================================= */
+
+.small-field input,
+.small-field select {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 12px;
+
+  border: 1px solid transparent;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #f2f3f5;
+
+  color: #26344c;
+
+  font-family: inherit;
+
   font-size: 12px;
 
-  color: #111;
+  box-sizing: border-box;
 
-  text-decoration: underline;
+  transition: 0.2s ease;
 }
 
 
-/* --------------------------------
-   MARQUEE ANIMATION
--------------------------------- */
+/* =========================================
+   TEXTAREA
+========================================= */
 
-@keyframes marqueeMove {
+.small-field textarea {
+  width: 100%;
 
-  0% {
-    transform: translateY(0);
+  min-height: 75px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #f2f3f5;
+
+  color: #26344c;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  resize: vertical;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.small-field input:focus,
+.small-field select:focus,
+.small-field textarea:focus {
+  background: #ffffff;
+
+  border-color: #e87500;
+
+  box-shadow: 0 0 0 2px rgba(232, 117, 0, 0.08);
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.small-submit {
+  width: 100%;
+  height: 44px;
+
+  margin-top: 3px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #e87500;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.small-submit:hover {
+  background: #d96800;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+  .contact-boxes {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
   }
 
-  80% {
-    transform: translateY(0);
+  .contact-info-box,
+  .consult-box {
+    padding: 20px;
   }
 
-  100% {
-    transform: translateY(-10em);
+  .contact-info-box h1 {
+    font-size: 27px;
   }
+
+  .consult-box h2 {
+    font-size: 23px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #10182d;
+}
+
+.contact-section {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 55px 30px;
+}
+
+/* ---------------- HEADER ---------------- */
+
+
+
+.contact-header span {
+  display: block;
+  color: #c65b08;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.contact-header h1 {
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -2px;
+  font-weight: 400;
+}
+
+.header-line {
+  width: 100px;
+  height: 6px;
+  background: #ff9f00;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+
+/* ---------------- GRID ---------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 45px;
+}
+
+
+/* ---------------- LEFT ---------------- */
+
+.section-label {
+  color: #8ca0bb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0 0 18px;
+}
+
+
+/* SMALL CONTACT BOX */
+
+.contact-box {
+  min-height: 62px;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  text-decoration: none;
+  color: #10182d;
+
+  background: #e3e9f1;
+  border-radius: 16px;
+
+  transition: all 0.25s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 24, 45, 0.1);
+}
+
+.contact-box.primary {
+  background: #10182d;
+  color: white;
+}
+
+.contact-box.whatsapp {
+  background: #37d3b4;
+  color: white;
+}
+
+
+/* ICON */
+
+.contact-box .icon {
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+
+  color: #ffb000;
+  font-size: 22px;
+}
+
+.whatsapp .icon {
+  color: #4CAF50;
+}
+
+
+/* SMALL TEXT */
+
+.contact-box small {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 3px;
+  opacity: 0.75;
+}
+
+.contact-box strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+
+/* MAP LINK */
+
+.map-link {
+  display: inline-block;
+  margin-top: 25px;
+
+  color: #c65b08;
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  transition: 0.2s;
+}
+
+.map-link:hover {
+  color: #10182d;
+}
+
+
+/* ---------------- RIGHT CARDS ---------------- */
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+
+
+
+/* ICON BOX */
+
+.info-icon {
+  width: 65px;
+  height: 65px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: #fff;
+  color: #e27600;
+  font-size: 32px;
+  margin: 0 15px 0 ;
+
+  box-shadow: 0 4px 12px rgba(16, 24, 45, 0.08);
+}
+
+
+/* CARD TEXT */
+
+.info-label {
+  display: block;
+  color: #8ca0bb;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  margin-bottom: 8px;
+}
+
+.info-cardco h3 {
+  margin: 0 0px 6px;
+  line-height: 1.2;
+  font-weight: 750;
+}
+
+.info-cardco{
+   
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 30px;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid transparent; /* keeps size from jumping */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+}
+
+
+
+/* ---------------- SOCIAL ---------------- */
+
+.social-card {
+  justify-content: space-between;
+}
+
+.social-card h3 {
+  font-size: 13px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #10182d;
+  text-decoration: none;
+
+  background: #fff;
+  border: 1px solid #edf0f4;
+
+  border-radius: 16px;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  box-shadow: 0 4px 12px rgba(16, 24, 45, 0.06);
+
+  transition: 0.25s;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px);
+  background: #ffeaac;
+  color: white;
+}
+
+/* =========================================
+   CONTACT MAP + INFO
+========================================= */
+
+.office-contact-section {
+  width: 100%;
+  max-width: 1150px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   LEFT MAP BOX
+========================================= */
+
+.map-box {
+  position: relative;
+
+  width: 100%;
+  height: 430px;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: #f5f7f9;
+
+  border: 1px solid #e8edf1;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  border: 0;
+}
+
+
+/* MAP BUTTON */
+
+.map-open-btn {
+  position: absolute;
+
+  left: 15px;
+  bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 9px 13px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  border-radius: 7px;
+
+  text-decoration: none;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+  transition: 0.3s ease;
+}
+
+.map-open-btn span {
+  color: #e87500;
+  font-size: 15px;
+}
+
+.map-open-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RIGHT INFO BOX
+========================================= */
+
+.office-info-box {
+  width: 100%;
+  height: 430px;
+
+  padding: 32px 35px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #f1d4b7;
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================
+   TOP LABEL
+========================================= */
+
+.office-tag {
+  width: fit-content;
+
+  margin-bottom: 12px;
+
+  padding: 5px 12px;
+
+  border-radius: 30px;
+
+  background: #fff1c9;
+
+  color: #9b4c0b;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.office-info-box h2 {
+  margin: 0 0 22px;
+
+  color: #121a30;
+
+  font-size: 27px;
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.office-details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+
+/* EACH ROW */
+
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
 
 }
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.detail-icon {
+  width: 22px;
+  min-width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-icon svg {
+  width: 19px;
+  height: 19px;
+
+  fill: none;
+
+  stroke: #e87500;
+
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.detail-row p {
+  margin: 0;
+
+  color: #35435a;
+
+  line-height: 1.4;
+}
+
+.detail-row strong {
+  color: #172033;
+
+  font-size: 15px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* SMALL LABEL */
+
+.detail-row span {
+  margin-left: 7px;
+
+  color: #9ba7b8;
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+
+/* GST */
+
+.detail-row em {
+  color: #a64b0c;
+
+  font-style: normal;
+}
+
+
+/* LINKS */
+
+.detail-row a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.detail-row a:hover strong {
+  color: #e87500;
+}
+
+
+/* =========================================
+   GOOGLE MAP BUTTON
+========================================= */
+
+.google-map-button {
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  background: #e87500;
+
+  color: #ffffff;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+
+  box-shadow: 0 6px 15px rgba(232, 117, 0, 0.20);
+
+  transition: 0.3s ease;
+ 
+}
+
+.google-map-button span {
+  font-size: 15px;
+}
+
+.google-map-button:hover {
+  background: #d96800;
+
+  transform: translateY(-2px);
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+  width: 100%;
+  background: #0d162a;
+  color: #8f9fb8;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 70px 0 0;
+}
+
+.footer-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0  20px 30px;
+
+  display: grid;
+  grid-template-columns: 1.55fr 0.9fr 1.35fr;
+  gap: 70px;
+}
+
+
+/* ================================
+   LEFT / BRAND
+================================ */
+
+.footer-logo {
+  width: 120px;
+  height: 80px;
+  background: #f5f5f5;
+  border-radius: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.footer-logo img {
+  width: 110px;
+  height: auto;
+  display: block;
+}
+
+.footer-description {
+  max-width: 590px;
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.95;
+  font-weight: 400;
+  color: #91a1b9;
+}
+
+
+/* ================================
+   SOCIAL BUTTONS
+================================ */
+
+.social-links {
+  display: flex;
+  gap: 17px;
+  margin-top: 32px;
+}
+
+.social-btn {
+  height: 33px;
+  padding: 0 7px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #1b2a43;
+  border-radius: 10px;
+
+  color: #d9e0ea;
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+.social-btn span {
+  color: #ffb900;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.social-btn:hover {
+  background: #243651;
+  transform: translateY(-2px);
+}
+
+
+/* ================================
+   BADGE
+================================ */
+
+.footer-badge {
+  margin-top: 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #ffbd00;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.footer-badge span {
+  color: #ffbd00;
+  font-size: 13px;
+}
+
+
+/* ================================
+   HEADINGS
+================================ */
+
+.footer-links h3,
+.footer-contact h3 {
+  margin: 2px 0 11px;
+
+  color: #f0f2f6;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.footer-line {
+  width: 100%;
+  height: 1px;
+  background: #202c40;
+  margin-bottom: 10px;
+}
+
+
+/* ================================
+   QUICK LINKS
+================================ */
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 15px;
+
+  color: #8fa0b9;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: 0.2s ease;
+}
+
+.footer-links a:first-letter {
+  color: #ffb900;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.footer-links a::first-line {
+  color: #ffb900;
+}
+
+
+/* ================================
+   CONTACT
+================================ */
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
+  margin-bottom: 18px;
+}
+
+.contact-icon {
+  flex: 0 0 22px;
+  color: #ffbd00;
+  font-size: 23px;
+  line-height: 1.1;
+
+  text-align: center;
+}
+
+.contact-item p {
+  margin: 0;
+
+  color: #91a1b9;
+
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.contact-item a {
+  color: #dce2eb;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.contact-item a:hover {
+  color: #ffbd00;
+}
+
+.contact-item strong {
+  color: #e4e8ef;
+  font-weight: 700;
+}
+
+.contact-item small {
+  color: #6e809c;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.gstin {
+  margin-top: 27px;
+
+  color: #ffbd00;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.gstin span {
+  color: #ffbd00;
+  margin-left: 5px;
+}
+
+
+/* ================================
+   BOTTOM FOOTER
+================================ */
+
+.footer-bottom {
+  max-width: 1250px;
+  min-height: 105px;
+
+  margin: 0 auto;
+  padding: 0 30px;
+
+  border-top: 1px solid #202c40;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+}
+
+.copyright {
+  color: #6f809b;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.copyright strong {
+  color: #bcc6d5;
+  font-weight: 700;
+}
+
+.copyright span {
+  color: #6f809b;
+}
+
+
+/* ================================
+   BOTTOM RIGHT
+================================ */
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  color: #70829e;
+  font-size: 12px;
+}
+
+.footer-bottom-right a {
+  color: #70829e;
+  text-decoration: none;
+}
+
+.footer-bottom-right a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom-right span {
+  color: #64758e;
+}
+
+.footer-bottom-right p {
+  margin: 0;
+}
+
+
+/* ================================
+   SCROLL TOP
+================================ */
+
+.scroll-top {
+  position: absolute;
+
+  right: -120px;
+  bottom: 25px;
+
+  width: 72px;
+  height: 72px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ffab00;
+  color: #071120;
+
+  font-size: 32px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.25s ease;
+}
+
+.scroll-top:hover {
+  background: #ffc033;
+  transform: translateY(-4px);
+}
+
+

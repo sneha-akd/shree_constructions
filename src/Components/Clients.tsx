@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 import atharva_logo from "../../src/assets/atharva_brand.webp";
 import adani_logo from "../../src/assets/adani-brand.webp";
@@ -13,179 +13,268 @@ const partners = [
     name: "ATHARVA CREATORS PVT. LTD.",
     desc: "Trusted Partner in Construction and Infrastructure Development.",
     logo: atharva_logo,
-    style: "square",
-    uri: "https://teamatharva.in/"
+    uri: "https://teamatharva.in/",
   },
   {
     name: "ADANI LOGISTICS LTD.",
     desc: "Delivering Integrated Logistics Solutions with Excellence.",
     logo: adani_logo,
-    style: "square",
-    uri: "https://www.adani.com/businesses/infrastructure"
+    uri: "https://www.adani.com/businesses/infrastructure",
   },
   {
     name: "BHASIN CONSTRUCTIONS COMPANY",
     desc: "Building Structures. Building Trust.",
     logo: bhasin_logo,
-    style: "square",
-    uri: "https://www.bhasinestates.com/"
+    uri: "https://www.bhasinestates.com/",
   },
   {
     name: "LLOYDS METALS & ENERGY LTD.",
-    desc: "Strengthening Tomorrow with Quality and Commitment",
+    desc: "Strengthening Tomorrow with Quality and Commitment.",
     logo: lloyd_logo,
-    style: "horizontal",
-    uri: "https://lloyds.in/"
+    uri: "https://lloyds.in/",
   },
   {
     name: "NIKITA INFRA",
     desc: "Building the Foundation of Tomorrow.",
     logo: nikita_logo,
-    style: "square",
-    uri: "https://nikitainfra.com/"
+    uri: "https://nikitainfra.com/",
   },
   {
     name: "RELIANCE CONSTRUCTION GROUP",
     desc: "Building Trust. Delivering Excellence.",
     logo: reliance_logo,
-    style: "horizontal",
-    uri: "https://www.reliancekc.com/"
+    uri: "https://www.reliancekc.com/",
   },
   {
     name: "M/s SOLAR EXPLOSIVES",
     desc: "Powering Progress. Energizing Infrastructure.",
     logo: solar_logo,
-    style: "horizontal",
-    uri: "https://solargroup.com/home.html"
+    uri: "https://solargroup.com/home.html",
   },
 ];
 
 function Clients() {
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [transition, setTransition] = useState(true);
-
-  const activeClient = partners[activeIndex];
-  const clients = [partners[partners.length - 1], ...partners, partners[0], partners[1], partners[2]];
+  const [activeIndex, setActiveIndex] = useState(2);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % partners.length);
-    }, 2500);
+    }, 5400);
 
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (activeIndex === partners.length + 1) {
-      // Wait until the animated movement has finished
-      const timer = setTimeout(() => {
-        // 1. Disable transition
-        setTransition(false);
-
-        // 2. Snap back to the real first item
-        setActiveIndex(0);
-
-        // 3. Re-enable transition on the next frame
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            setTransition(true);
-          });
-        });
-      }, 600);
-
-      return () => clearTimeout(timer);
-    }
-  }, [activeIndex, partners.length]);
-
-
-  // const visibleItems = [
-  //   partners[(activeIndex - 1 + partners.length) % partners.length],
-  //   activeClient,
-  //   partners[(activeIndex + 1) % partners.length],
-  //   partners[(activeIndex + 2) % partners.length]
-  // ];
-
+  }, [isPaused]);
 
   return (
-    <section id='clients'>
-      <div className="overline">
-        <div className="overline-box">
-          <span className="overline-star">★</span>
-          <p>AFFILIATES</p>
+    <>
+      <section id="clients">
+
+        {/* HEADER */}
+
+
+
+        <div className="overline">
+          <div className="overline-box">
+            <span className="overline-star">★</span>
+            <p>AFFILIATES</p>
+          </div>
         </div>
-      </div>
-      <h1>
-        Major{" "}
-        <span className="orange-text">
-          Clients
-        </span>
-      </h1>
-      <p>
-        Building Strong Relationships, Delivering Excellence.
-      </p>
+
+        <h1>
+          Major <span className="orange-text">Clients</span>
+        </h1>
+
+        <p className="clients-subtitle">
+          Building Strong Relationships, Delivering Excellence.
+        </p>
+        <div>
+          <p className='quote'>Trusted by leading organizations across
+            industrial, commercial and infrastructure sectors.
+          </p>
+        </div>
 
 
-      <div className='logo-showcase'>
-        <div className="logo-marquee">
+        {/* MARQUEE */}
 
-          <div className="logo-marquee-track"
-            style={{
-              transform: `translateY(-${(activeIndex) * 10
-                }em)`,
-              transition: transition
-                ? "transform 600ms ease-in-out"
-                : "none",
-            }}
+        <div
+          className="clients-marquee"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+
+          <div className="marquee-fade marquee-fade-left"></div>
+
+          <div
+            className={`clients-marquee-track ${isPaused ? "marquee-paused" : ""
+              }`}
           >
-            {clients.map((client, index) => {
 
-              return (
+            {/* FIRST GROUP */}
+
+            <div className="clients-marquee-group">
+
+              {partners.map((client, index) => (
+
                 <div
-                  key={`${client.name}-${index}`}
-                  className={`logo-item ${activeIndex === index ? "active" : ""
+                  className={`client-card ${activeIndex === index ? "active-client" : ""
                     }`}
+                  key={`first-${index}`}
                 >
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                  />
+
+                  <div className="client-card-logo">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                    />
+                  </div>
+
+                  <div className="client-card-content">
+
+                    <h3>
+                      {client.name}
+                    </h3>
+
+                    <p>
+                      {client.desc}
+                    </p>
+
+                    <a
+                      href={client.uri}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit Website <span>↗</span>
+                    </a>
+
+                  </div>
+
                 </div>
-              );
-            })}
+
+              ))}
+
+            </div>
+
+
+            {/* DUPLICATE GROUP */}
+
+            <div
+              className="clients-marquee-group"
+              aria-hidden="true"
+            >
+
+              {partners.map((client, index) => (
+
+                <div
+                  className={`client-card ${activeIndex === index ? "active-client" : ""
+                    }`}
+                  key={`second-${index}`}
+                >
+
+                  <div className="client-card-logo">
+                    <img
+                      src={client.logo}
+                      alt=""
+                    />
+                  </div>
+
+                  <div className="client-card-content">
+
+                    <h3>
+                      {client.name}
+                    </h3>
+
+                    <p>
+                      {client.desc}
+                    </p>
+
+                    <a
+                      href={client.uri}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      tabIndex="-1"
+                    >
+                      Visit Website <span>↗</span>
+                    </a>
+
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
           </div>
+
+          <div className="marquee-fade marquee-fade-right"></div>
 
         </div>
 
-        <div className="logo-details">
 
-          <div className="detail-logo">
-            <img
-              src={activeClient.logo}
-              alt={activeClient.name}
-            />
+
+      </section >
+
+      <div className="trust-grid">
+
+        <div className="trust-card">
+          <div className="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
           </div>
+          <h3>TRUSTED PARTNERS</h3>
+          <p>Corporate Enterprises</p>
+        </div>
 
-          <div className="detail-content">
 
-            <h2>{activeClient.name}</h2>
-
-            <p>{activeClient.desc}</p>
-
-            <a
-              href={activeClient.uri}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit Website
-            </a>
-
+        <div className="trust-card">
+          <div className="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3L4 6v6c0 5.25 3.4 9.75 8 11 4.6-1.25 8-5.75 8-11V6l-8-3z" />
+              <path d="m8.5 12 2.3 2.3 4.7-4.7" />
+            </svg>
           </div>
+          <h3>QUALITY ASSURED</h3>
+          <p>Strict Engineering Standards</p>
+        </div>
 
+
+        <div className="trust-card">
+          <div className="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M20 7h-9" />
+              <path d="M20 17h-9" />
+              <path d="M4 7h.01" />
+              <path d="M4 17h.01" />
+              <path d="M7 4v6" />
+              <path d="M7 14v6" />
+              <path d="M17 4v6" />
+              <path d="M17 14v6" />
+            </svg>
+          </div>
+          <h3>LONG TERM RELATIONS</h3>
+          <p>Repeat Contracts & Trust</p>
+        </div>
+
+
+        <div className="trust-card">
+          <div className="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="9" />
+              <path d="m8 12 2.5 2.5L16 9" />
+            </svg>
+          </div>
+          <h3>CLIENT SATISFACTION</h3>
+          <p>100% On-Time Delivery</p>
         </div>
       </div>
-    </section >
-  )
+    </>
+  );
 }
 
 export default Clients;

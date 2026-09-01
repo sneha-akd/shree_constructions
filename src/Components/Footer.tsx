@@ -1,11 +1,10 @@
 
-
+import "../assets/logo_navbar.png"
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-
         {/* LEFT SECTION */}
         <div className="footer-brand">
           <div className="footer-logo">

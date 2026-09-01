@@ -1,5 +1,6 @@
 
 
+import "../assets/logo_main.png";
 
 
 function Home() {

@@ -1,5 +1,5 @@
 
-
+import "../assets/logo_navbar.png";
 
 import { useEffect, useState } from "react";
 

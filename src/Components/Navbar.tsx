@@ -1,5 +1,5 @@
 
-import "../assets/logo_navbar.png";
+import logo_navbar1 from "../assets/logo_navbar.png";
 
 import { useEffect, useState } from "react";
 
@@ -26,7 +26,7 @@ function Navbar() {
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <h2>
         <img
-          src="/src/assets/logo_navbar.png"
+          src={logo_navbar1}
           height={50}
           alt="Logo"
         />

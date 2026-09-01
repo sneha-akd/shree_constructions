@@ -1,5 +1,5 @@
 
-import "../assets/logo_navbar.png"
+import logo_navbar from "../assets/logo_navbar.png";
 
 const Footer = () => {
   return (
@@ -8,7 +8,10 @@ const Footer = () => {
         {/* LEFT SECTION */}
         <div className="footer-brand">
           <div className="footer-logo">
-            <img src="/src/assets/logo_navbar.png" alt="Shree Construction" />
+            <img
+              src={logo_navbar}
+              alt="Shree Construction"
+            />
           </div>
 
           <p className="footer-description">

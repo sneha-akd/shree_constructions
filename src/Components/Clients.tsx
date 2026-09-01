@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import atharva_logo from "../../src/assets/atharva_brand.webp";
 import adani_logo from "../../src/assets/adani-brand.webp";
@@ -193,7 +193,7 @@ function Clients() {
                       href={client.uri}
                       target="_blank"
                       rel="noopener noreferrer"
-                      tabIndex="-1"
+                      tabIndex={-1}
                     >
                       Visit Website <span>↗</span>
                     </a>

@@ -1,65 +1,5 @@
 
 
-
-const PhoneIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2
-      19.79 19.79 0 0 1-8.63-3.07
-      19.5 19.5 0 0 1-6-6
-      19.79 19.79 0 0 1-3.07-8.67
-      A2 2 0 0 1 4.11 2h3
-      a2 2 0 0 1 2 1.72
-      12.84 12.84 0 0 0 .7 2.81
-      2 2 0 0 1-.45 2.11L8.09 9.91
-      a16 16 0 0 0 6 6l1.27-1.27
-      a2 2 0 0 1 2.11-.45
-      12.84 12.84 0 0 0 2.81.7
-      A2 2 0 0 1 22 16.92z"
-    />
-  </svg>
-);
-
-const EmailIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect x="3" y="5" width="18" height="14" rx="2" />
-    <path d="m3 7 9 6 9-6" />
-  </svg>
-);
-
-const SparkleIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M12 3v5" />
-    <path d="M12 16v5" />
-    <path d="M3 12h5" />
-    <path d="M16 12h5" />
-    <path d="m5.6 5.6 3.5 3.5" />
-    <path d="m14.9 14.9 3.5 3.5" />
-    <path d="m18.4 5.6-3.5 3.5" />
-    <path d="m9.1 14.9-3.5 3.5" />
-  </svg>
-);
-
 const Contact = () => {
 
 
@@ -187,7 +127,7 @@ const Contact = () => {
               COMPLETE DETAILS BELOW FOR STRUCTURAL REVIEW
             </p>
 
-            <form>
+            <form onSubmit={handleSubmit}>
 
               <div className="small-form-row">
 
@@ -234,7 +174,7 @@ const Contact = () => {
 
               <div className="small-field">
                 <label>MESSAGE (OPTIONAL)</label>
-                <textarea rows="3"></textarea>
+                <textarea rows={3}></textarea>
               </div>
 
 

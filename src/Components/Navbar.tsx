@@ -1,17 +1,29 @@
 
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Navbar() {
   const [active, setActive] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleClick = (section: string) => {
     setActive(section);
   };
 
   return (
-    <nav className="navbar">
+
+    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <h2>
         <img
           src="/src/assets/logo_navbar.png"

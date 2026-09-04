@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -337,7 +338,7 @@ nav a:hover::after {
 ========================= */
 
 section {
-  min-height: 100vh;
+  min-height: 90vh;
 
   padding: 10px 8% 100px;
 
@@ -763,9 +764,9 @@ form button:hover {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .small-boxes {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr  ;
   }
 }
 
@@ -826,6 +827,7 @@ form button:hover {
   background-color: var(--primary-light);
 }
 
+
 .values-wrapper {
   margin-top: 40px;
   width: 100%;
@@ -852,7 +854,27 @@ form button:hover {
   font-size: 0.8em;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+@media (max-width: 600px) {
 
+  .values-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .value-item {
+    height: auto;
+    min-height: 45px;
+    padding: 8px;
+    font-size: 0.7em;
+  }
+
+  .check-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+}
 .construction-description {
   width: 100%;
   background: transparent;
@@ -992,6 +1014,65 @@ form button:hover {
   display: flex;
   align-items: center;
   gap:  0.5em;
+}
+@media (max-width: 600px) {
+
+  .choose-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .choose-box {
+    min-height: 200px;
+    padding: 15px;
+  }
+
+  .choose-box h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .choose-box h2 {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .choose-box .subtitle {
+    font-size: 0.7rem;
+  }
+
+  .choose-box p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .verified {
+    font-size: 10px;
+  }
+
+  .verified-footer {
+    gap: 5px;
+    margin-top: 15px;
+    padding-bottom: 1em;
+  }
+
+  .verified-footer-wrapper {
+    padding-bottom: 3em;
+  }
+
+  .verified-check {
+    gap: 0.3em;
+  }
+
+  .verified-tick {
+    font-size: 0.7em;
+  }
+
+  .verified-tick svg {
+    width: 0.9em;
+    height: 0.9em;
+  }
+
 }
 /* =========================================
    COMMITMENT & JOURNEY
@@ -1906,6 +1987,46 @@ form button:hover {
 .quote::after {
   content: "”";
 }
+@media (max-width: 768px) {
+
+  .choose-process-grid {
+    width: 100%;
+    margin: 30px auto 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .process-item-wrapper {
+    position: relative;
+  }
+
+  .process-item-icon {
+    width: max-content;
+    padding: 8px;
+    border-radius: 0.8rem;
+    background-color: var(--bgcolor-muted);
+    color: var(--secondary-accent);
+    line-height: 0;
+  }
+
+  .choose-box:hover .process-item-icon {
+    background-color: var(--primary-light);
+  }
+
+  .process-item-content {
+    padding: 8px 0;
+  }
+
+  .quote {
+    font-size: 1rem;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    border-left: 2px solid var(--blue);
+    border-radius: 0.6rem;
+  }
+
+}
 
 .modern-quote {
   font-size: 1.5rem;
@@ -2600,19 +2721,6 @@ form button:hover {
   box-sizing: border-box;
 }
 
-.contact-boxes {
-  width: 100%;
-  max-width: 1100px;
-
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  gap: 25px;
-
-  align-items: start;
-}
 
 
 /* =========================================
@@ -2728,6 +2836,7 @@ form button:hover {
   border-radius: 14px;
 
   box-sizing: border-box;
+  height: 70px;
 }
 
 
@@ -3031,6 +3140,792 @@ form button:hover {
 }
 
 
+
+
+  /* ================================
+     LEFT SIDE
+  ================================= */
+
+  .contact-left {
+    border-radius: 18px;
+    padding: 10px;
+  }
+
+  .partner-badge {
+    height: 36px;
+    padding: 0 12px;
+    gap: 6px;
+    border-radius: 20px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .partner-badge svg {
+    width: 17px;
+    height: 17px;
+  }
+
+
+  /* ================================
+     MAIN HEADING
+  ================================= */
+
+  .contact-left h1 {
+    margin: 18px 0 14px;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -1.2px;
+  }
+
+  .contact-left h1 span {
+    margin-top: 4px;
+  }
+
+
+  /* ================================
+     DESCRIPTION
+  ================================= */
+
+  .contact-description {
+    max-width: 100%;
+    margin: 0 0 25px;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .contact-description span {
+    padding: 1px 3px;
+  }
+
+
+  /* ================================
+     MAIN CONTACT AREA
+  ================================= */
+
+  .contact-area {
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
+
+  .contact-boxes {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+
+    gap: 50px;
+   
+  }
+
+
+  /* ================================
+     LEFT SMALL BOX
+  ================================= */
+
+  .contact-info-box {
+    width: 100%;
+    padding: 20px 12px;
+
+    border-radius: 14px;
+    box-sizing: border-box;
+  }
+
+
+  /* ================================
+     BADGE
+  ================================= */
+
+  .contact-badge {
+    padding: 5px 9px;
+    border-radius: 18px;
+    font-size: 8px;
+    letter-spacing: 0.7px;
+  }
+
+
+  /* ================================
+     LEFT HEADING
+  ================================= */
+
+  .contact-info-box h1 {
+    margin: 13px 0 8px;
+    font-size: 21px;
+    line-height: 1.05;
+    letter-spacing: -0.6px;
+  }
+
+  .contact-info-box h1 span {
+    margin-top: 2px;
+  }
+
+
+  /* ================================
+     DESCRIPTION
+  ================================= */
+
+  .contact-text {
+    margin: 0 0 14px;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .contact-text b {
+    padding: 1px 2px;
+  }
+
+
+  /* ================================
+     MINI CONTACT BOX
+  ================================= */
+
+  .mini-contact {
+    width: 100%;
+    min-height: 50px;
+
+    margin-top: 7px;
+    padding: 7px 8px;
+
+    border-radius: 9px;
+  }
+
+
+  /* ================================
+     MINI ICON
+  ================================= */
+
+  .mini-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+
+  .mini-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+
+  /* ================================
+     MINI CONTACT TEXT
+  ================================= */
+
+  .mini-contact > div:last-child {
+    margin-left: 7px;
+  }
+
+  .mini-contact small {
+    margin-bottom: 1px;
+    font-size: 7px;
+    letter-spacing: 0.5px;
+  }
+
+  .mini-contact strong {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .mini-contact .email-text {
+    font-size: 9px;
+  }
+
+
+  /* ================================
+     RIGHT CONSULTATION BOX
+  ================================= */
+
+  .consult-box {
+    width: 100%;
+    padding: 18px 12px;
+
+    border-radius: 14px;
+    box-sizing: border-box;
+  }
+
+
+  /* ================================
+     RIGHT HEADING
+  ================================= */
+
+  .consult-box h2 {
+    margin: 0 0 4px;
+    font-size: 20px;
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+  }
+
+  .consult-subtitle {
+    margin: 0 0 13px;
+    font-size: 7px;
+    letter-spacing: 0.5px;
+  }
+
+
+  /* ================================
+     FORM ROW
+  ================================= */
+
+  .small-form-row {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+    margin-bottom: 9px;
+  }
+
+
+  /* ================================
+     FIELD
+  ================================= */
+
+  .small-field {
+    width: 100%;
+    margin-bottom: 9px;
+    box-sizing: border-box;
+  }
+
+  .small-form-row .small-field {
+    margin-bottom: 0;
+  }
+
+
+  /* ================================
+     LABEL
+  ================================= */
+
+  .small-field label {
+    margin-bottom: 4px;
+    font-size: 8px;
+    letter-spacing: 0.4px;
+  }
+
+
+  /* ================================
+     INPUT + SELECT
+  ================================= */
+
+  .small-field input,
+  .small-field select {
+    width: 100%;
+    height: 35px;
+
+    padding: 0 7px;
+
+    border-radius: 7px;
+    font-size: 9px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* ================================
+     TEXTAREA
+  ================================= */
+
+  .small-field textarea {
+    width: 100%;
+    min-height: 60px;
+
+    padding: 7px;
+
+    border-radius: 7px;
+    font-size: 9px;
+    line-height: 1.3;
+
+    box-sizing: border-box;
+  }
+
+
+  /* ================================
+     BUTTON
+  ================================= */
+
+  .small-submit {
+    width: 100%;
+    height: 37px;
+
+    margin-top: 2px;
+
+    border-radius: 7px;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+
+
+
+  /* CONTACT AREA */
+
+  .contact-area {
+    width: 100%;
+    padding: 25px 0;
+    box-sizing: border-box;
+  }
+
+  
+
+
+  /* LEFT CONTACT BOX */
+
+  .contact-info-box {
+    width: 100%;
+    padding: 25px 18px;
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
+
+  .contact-badge {
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+
+  .contact-info-box h1 {
+    font-size: 25px;
+    line-height: 1.05;
+  }
+
+  .contact-text {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  
+
+  .mini-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mini-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .mini-contact small {
+    font-size: 8px;
+  }
+
+  .mini-contact strong {
+    font-size: 13px;
+  }
+
+  .mini-contact .email-text {
+    font-size: 12px;
+  }
+
+
+  /* RIGHT CONSULTATION BOX */
+
+  .consult-box {
+    width: 100%;
+    padding: 22px 16px;
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
+
+  .consult-box h2 {
+    font-size: 23px;
+  }
+
+  .consult-subtitle {
+    font-size: 8px;
+    margin-bottom: 16px;
+  }
+
+
+  /* FORM STAYS 2 COLUMNS */
+
+  .small-form-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .small-field {
+    width: 100%;
+    margin-bottom: 11px;
+  }
+
+  .small-field label {
+    font-size: 9px;
+  }
+
+  .small-field input,
+  .small-field select {
+    width: 100%;
+    height: 40px;
+    font-size: 10px;
+    padding: 0 9px;
+  }
+
+  .small-field textarea {
+    width: 100%;
+    min-height: 70px;
+    font-size: 10px;
+    padding: 9px;
+  }
+
+  .small-submit {
+    width: 100%;
+    height: 42px;
+    font-size: 10px;
+  }
+
+  /* =========================================
+   MOBILE VIEW
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* MAIN CONTACT SECTION */
+
+  .contact-section {
+    width: 100%;
+    padding: 0 0 40px;
+    box-sizing: border-box;
+  }
+
+  .contact-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+
+  /* =========================================
+     LEFT SIDE
+  ========================================= */
+
+  .contact-left {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .partner-badge {
+    height: 40px;
+    padding: 0 15px;
+    gap: 8px;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .partner-badge svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .contact-left h1 {
+    margin: 20px 0 15px;
+
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+
+  .contact-left h1 span {
+    margin-top: 4px;
+  }
+
+  .contact-description {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 25px;
+
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+
+  /* =========================================
+     CONTACT BOX AREA
+  ========================================= */
+
+  .contact-area {
+    width: 100%;
+    padding: 25px 0;
+
+    box-sizing: border-box;
+  }
+
+  
+
+
+  /* =========================================
+     CONTACT INFO BOX
+  ========================================= */
+
+  .contact-info-box {
+    width: 100%;
+
+    padding: 30px 20px;
+
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
+
+  .contact-badge {
+    padding: 6px 10px;
+
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+
+  .contact-info-box h1 {
+    margin: 15px 0 10px;
+
+    font-size: 24px;
+    line-height: 1.05;
+    letter-spacing: -0.7px;
+  }
+
+  .contact-info-box h1 span {
+    margin-top: 2px;
+  }
+
+  .contact-text {
+    margin: 0 0 18px;
+
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .contact-text b {
+    padding: 1px 2px;
+  }
+
+
+  /* =========================================
+     MINI CONTACT
+  ========================================= */
+
+  
+
+  .mini-icon {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 9px;
+  }
+
+  .mini-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .mini-contact > div:last-child {
+    margin-left: 9px;
+  }
+
+  .mini-contact small {
+    margin-bottom: 2px;
+
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .mini-contact strong {
+    font-size: 12px;
+  }
+
+  .mini-contact .email-text {
+    font-size: 11px;
+  }
+
+
+  /* =========================================
+     CONSULTATION BOX
+  ========================================= */
+
+  .consult-box {
+    width: 100%;
+
+    padding: 22px 16px;
+
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
+
+  .consult-box h2 {
+    margin: 0 0 5px;
+
+    font-size: 23px;
+    line-height: 1.15;
+  }
+
+  .consult-subtitle {
+    margin: 0 0 16px;
+
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+
+
+  /* =========================================
+     FORM ROW
+  ========================================= */
+
+  .small-form-row {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+
+  /* =========================================
+     FIELD
+  ========================================= */
+
+  .small-field {
+    width: 100%;
+    margin-bottom: 11px;
+
+    box-sizing: border-box;
+  }
+
+  .small-form-row .small-field {
+    margin-bottom: 0;
+  }
+
+  .small-field label {
+    margin-bottom: 4px;
+
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+
+  /* =========================================
+     INPUT + SELECT
+  ========================================= */
+
+  .small-field input,
+  .small-field select {
+    width: 100%;
+    height: 40px;
+
+    padding: 0 9px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =========================================
+     TEXTAREA
+  ========================================= */
+
+  .small-field textarea {
+    width: 100%;
+    min-height: 70px;
+
+    padding: 9px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+    line-height: 1.3;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =========================================
+     BUTTON
+  ========================================= */
+
+  .small-submit {
+    width: 100%;
+    height: 42px;
+
+    margin-top: 2px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 10px;
+  }
+
+  .contact-left {
+    padding: 10px;
+  }
+
+  .contact-left h1 {
+    font-size: 28px;
+  }
+
+  .contact-description {
+    font-size: 11px;
+  }
+
+  
+
+  .contact-info-box {
+    padding: 22px 12px;
+  }
+
+  .contact-info-box h1 {
+    font-size: 20px;
+  }
+
+  .contact-text {
+    font-size: 10px;
+  }
+
+  .consult-box {
+    padding: 18px 12px;
+  }
+
+  .consult-box h2 {
+    font-size: 20px;
+  }
+
+  .small-form-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+
+}
+
+
+
 /* =========================================
    TABLET
 ========================================= */
@@ -3038,7 +3933,7 @@ form button:hover {
 @media (max-width: 850px) {
 
   .contact-boxes {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 
     gap: 18px;
   }
@@ -3224,7 +4119,6 @@ body {
 
 
 
-
 /* ICON BOX */
 
 .info-icon {
@@ -3324,14 +4218,198 @@ body {
   color: white;
 }
 
+/* ================================
+   MOBILE VIEW - CONTACT
+================================ */
+
+@media (max-width: 768px) {
+
+  /* MAIN GRID */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* LEFT SECTION */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+  }
+
+  /* CONTACT BOX */
+  .contact-box {
+    min-height: 52px;
+    padding: 10px 14px;
+    margin-bottom: 9px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  /* ICON */
+  .contact-box .icon {
+    width: 24px;
+    font-size: 19px;
+  }
+
+  /* TEXT */
+  .contact-box small {
+    font-size: 8px;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+  }
+
+  .contact-box strong {
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  /* MAP LINK */
+  .map-link {
+    margin-top: 15px;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+  }
+
+  /* RIGHT SECTION */
+  .contact-right {
+    gap: 15px;
+  }
+
+  /* INFO CARD */
+  .info-cardco {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 13px;
+    align-items: center;
+  }
+
+  /* ICON BOX */
+  .info-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 12px 0 0;
+    border-radius: 13px;
+    font-size: 24px;
+  }
+
+  /* CARD TEXT */
+  .info-label {
+    font-size: 8px;
+    letter-spacing: 1.1px;
+    margin-bottom: 5px;
+  }
+
+  .info-cardco h3 {
+    font-size: 14px;
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+
+  /* SOCIAL CARD */
+  .social-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .social-card h3 {
+    font-size: 12px;
+  }
+
+  /* SOCIAL ICONS */
+  .social-icons {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .social-icons a {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 20px;
+  }
+
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+
+  .contact-grid {
+    gap: 15px;
+  }
+
+  .contact-box {
+    min-height: 48px;
+    padding: 9px 12px;
+    gap: 10px;
+    border-radius: 11px;
+  }
+
+  .contact-box .icon {
+    width: 22px;
+    font-size: 18px;
+  }
+
+  .contact-box small {
+    font-size: 7px;
+  }
+
+  .contact-box strong {
+    font-size: 11px;
+  }
+
+  .map-link {
+    font-size: 9px;
+  }
+
+  .info-cardco {
+    padding: 13px;
+    margin-top: 7px;
+  }
+
+  .info-icon {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+    border-radius: 11px;
+    font-size: 21px;
+  }
+
+  .info-label {
+    font-size: 7px;
+  }
+
+  .info-cardco h3 {
+    font-size: 12px;
+  }
+
+  .social-card {
+    gap: 12px;
+  }
+
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+
+}
 /* =========================================
    CONTACT MAP + INFO
 ========================================= */
 
 .office-contact-section {
   width: 100%;
-  max-width: 1150px;
-  margin: 40px auto;
+  max-width: 1200px;
+  margin: 10px auto;
   padding: 0 20px;
 
   display: grid;
@@ -3636,14 +4714,222 @@ body {
 
   transform: translateY(-2px);
 }
+/* =========================================
+   MOBILE VIEW - OFFICE CONTACT
+========================================= */
 
+@media (max-width: 768px) {
+
+  .office-contact-section {
+    width: 100%;
+    margin: 25px auto;
+    padding: 0 12px;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* MAP */
+  .map-box {
+    width: 100%;
+    height: 280px;
+    border-radius: 14px;
+  }
+
+  .map-open-btn {
+    left: 10px;
+    bottom: 10px;
+    padding: 8px 11px;
+    gap: 5px;
+    font-size: 9px;
+    border-radius: 6px;
+  }
+
+  .map-open-btn span {
+    font-size: 13px;
+  }
+
+
+  /* OFFICE INFO */
+  .office-info-box {
+    width: 100%;
+    height: auto;
+    min-height: 350px;
+    padding: 20px 18px;
+    border-radius: 14px;
+  }
+
+
+  /* TAG */
+  .office-tag {
+    margin-bottom: 9px;
+    padding: 4px 10px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+
+  /* TITLE */
+  .office-info-box h2 {
+    margin: 0 0 17px;
+    font-size: 21px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+  }
+
+
+  /* DETAILS */
+  .office-details {
+    gap: 11px;
+  }
+
+
+  /* ROW */
+  .detail-row {
+    gap: 8px;
+  }
+
+
+  /* ICON */
+  .detail-icon {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+  }
+
+  .detail-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+
+  /* TEXT */
+  .detail-row strong {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .detail-row p {
+    line-height: 1.35;
+  }
+
+
+  /* SMALL LABEL */
+  .detail-row span {
+    margin-left: 4px;
+    font-size: 8px;
+  }
+
+
+  /* GOOGLE MAP BUTTON */
+  .google-map-button {
+    margin-top: 14px;
+    height: 38px;
+    border-radius: 8px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .google-map-button span {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE - 480px
+========================================= */
+
+@media (max-width: 480px) {
+
+  .office-contact-section {
+    margin: 20px auto;
+    padding: 0 10px;
+    gap: 12px;
+  }
+
+  .map-box {
+    height: 240px;
+    border-radius: 12px;
+  }
+
+  .map-open-btn {
+    left: 8px;
+    bottom: 8px;
+    padding: 7px 9px;
+    font-size: 8px;
+  }
+
+  .map-open-btn span {
+    font-size: 12px;
+  }
+
+
+  .office-info-box {
+    padding: 17px 14px;
+    min-height: 330px;
+    border-radius: 12px;
+  }
+
+  .office-tag {
+    font-size: 7px;
+    padding: 4px 9px;
+    margin-bottom: 8px;
+  }
+
+  .office-info-box h2 {
+    font-size: 19px;
+    margin-bottom: 15px;
+  }
+
+  .office-details {
+    gap: 9px;
+  }
+
+  .detail-row {
+    gap: 7px;
+  }
+
+  .detail-icon {
+    width: 19px;
+    min-width: 19px;
+    height: 19px;
+  }
+
+  .detail-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .detail-row strong {
+    font-size: 11px;
+  }
+
+  .detail-row span {
+    font-size: 7px;
+    margin-left: 3px;
+  }
+
+  .google-map-button {
+    height: 36px;
+    margin-top: 12px;
+    font-size: 9px;
+  }
+
+  .google-map-button span {
+    font-size: 12px;
+  }
+
+}
 /* ================================
    FOOTER
 ================================ */
 
 .footer {
   width: 100%;
-  background: #0d162a;
+  /* background: #0d162a; */
+  background: #001237;
+  /* background: var(--secondary-accent); */
   color: #8f9fb8;
   font-family: Arial, Helvetica, sans-serif;
   padding: 70px 0 0;
@@ -3989,5 +5275,317 @@ body {
   background: #ffc033;
   transform: translateY(-4px);
 }
+ /* ================================
+    FOOTER MOBILE VIEW
+ ================================ */
 
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 40px 0 0;
+  }
+
+  .footer-container {
+    width: 100%;
+    padding: 0 18px 25px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    box-sizing: border-box;
+  }
+
+
+  /* ================================
+     BRAND
+  ================================ */
+
+  .footer-logo {
+    width: 95px;
+    height: 62px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+  }
+
+  .footer-logo img {
+    width: 88px;
+  }
+
+  .footer-description {
+    max-width: 100%;
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+
+  /* ================================
+     SOCIAL
+  ================================ */
+
+  .social-links {
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .social-btn {
+    height: 30px;
+    padding: 0 7px;
+    gap: 6px;
+    border-radius: 8px;
+    font-size: 9px;
+  }
+
+  .social-btn span {
+    font-size: 16px;
+  }
+
+
+  /* ================================
+     BADGE
+  ================================ */
+
+  .footer-badge {
+    margin-top: 22px;
+    gap: 8px;
+    font-size: 10px;
+  }
+
+  .footer-badge span {
+    font-size: 10px;
+  }
+
+
+  /* ================================
+     HEADINGS
+  ================================ */
+
+  .footer-links h3,
+  .footer-contact h3 {
+    margin: 0 0 8px;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+
+  .footer-line {
+    margin-bottom: 9px;
+  }
+
+
+  /* ================================
+     QUICK LINKS
+  ================================ */
+
+  .footer-links a {
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 11px;
+  }
+
+
+  /* ================================
+     CONTACT
+  ================================ */
+
+  .contact-item {
+    gap: 9px;
+    margin-bottom: 12px;
+  }
+
+  .contact-icon {
+    flex: 0 0 19px;
+    font-size: 19px;
+  }
+
+  .contact-item p {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .contact-item a {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .contact-item strong {
+    font-size: 10px;
+  }
+
+  .contact-item small {
+    font-size: 9px;
+    margin-left: 3px;
+  }
+
+  .gstin {
+    margin-top: 18px;
+    font-size: 9px;
+  }
+
+
+  /* ================================
+     BOTTOM FOOTER
+  ================================ */
+
+  .footer-bottom {
+    width: 100%;
+    min-height: auto;
+    padding: 18px;
+    border-top: 1px solid #202c40;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+
+  /* ================================
+     BOTTOM RIGHT
+  ================================ */
+
+  .footer-bottom-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+
+    font-size: 9px;
+  }
+
+  .footer-bottom-right p {
+    font-size: 9px;
+  }
+
+
+  /* ================================
+     SCROLL TOP
+  ================================ */
+
+  .scroll-top {
+    right: 12px;
+    bottom: 75px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 20px;
+  }
+
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+
+  .footer {
+    padding-top: 32px;
+  }
+
+  .footer-container {
+    padding: 0 14px 20px;
+    gap: 25px;
+  }
+
+  .footer-logo {
+    width: 85px;
+    height: 55px;
+    border-radius: 13px;
+    margin-bottom: 15px;
+  }
+
+  .footer-logo img {
+    width: 78px;
+  }
+
+  .footer-description {
+    font-size: 10px;
+    line-height: 1.65;
+  }
+
+  .social-links {
+    margin-top: 15px;
+    gap: 7px;
+  }
+
+  .social-btn {
+    height: 28px;
+    padding: 0 6px;
+    font-size: 8px;
+  }
+
+  .social-btn span {
+    font-size: 14px;
+  }
+
+  .footer-badge {
+    margin-top: 18px;
+    font-size: 9px;
+  }
+
+  .footer-links a {
+    font-size: 10px;
+    margin-bottom: 9px;
+  }
+
+  .contact-item {
+    margin-bottom: 10px;
+    gap: 7px;
+  }
+
+  .contact-icon {
+    flex-basis: 18px;
+    font-size: 17px;
+  }
+
+  .contact-item p,
+  .contact-item a {
+    font-size: 9px;
+  }
+
+  .contact-item small {
+    font-size: 8px;
+  }
+
+  .gstin {
+    font-size: 8px;
+    margin-top: 15px;
+  }
+
+  .footer-bottom {
+    padding: 15px 10px;
+    gap: 9px;
+  }
+
+  .copyright {
+    font-size: 8px;
+  }
+
+  .footer-bottom-right {
+    gap: 8px;
+    font-size: 8px;
+  }
+
+  .footer-bottom-right p {
+    font-size: 8px;
+  }
+
+  .scroll-top {
+    right: 10px;
+    bottom: 65px;
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+}
 
